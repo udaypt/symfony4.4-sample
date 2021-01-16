@@ -1,0 +1,4 @@
+/data/composer/cache
+/app/var/cache
+/app/var/log
+/app/vendor

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Hello World</h1>
+	{% if app.token.user.username is defined %}
+		<p>Welcome {{ app.token.user.username }}</p>
+		<p><b>{{ app.session.get('onlogin-notice') | default('<span style="color: red">ON-LOGIN event was not triggered.</span>') |raw}}</b></p>
+		<p><a href="{{ path('app_logout') }}">Click to Logout</a></p>
+	{% else %}
+		<p><b>{{ app.session.get('onlogout-notice') | default('<span style="color: red">ON-LOGOUT event was not triggered.</span>') |raw}}</b></p>
+		<p><a href="{{ path('app_login') }}">Login</a> to use the application</p>
+	{% endif %}
+{% endblock %}
